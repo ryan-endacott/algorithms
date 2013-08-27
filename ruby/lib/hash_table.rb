@@ -1,3 +1,4 @@
+require './linked_list'
 
 class HashTable
 
@@ -22,6 +23,6 @@ class HashTable
 
     # Trivial hash algorithm by adding char values
     def hash(key)
-      key.to_s.chars.map(&:ord).sum % @capacity
+      key.to_s.chars.map(&:ord).inject(:+) % @capacity
     end
 end
