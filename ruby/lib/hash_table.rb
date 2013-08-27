@@ -5,12 +5,11 @@ class HashTable
   def initialize(capacity = 10)
     @capacity = capacity
     @array = Array.new(capacity)
-    @array.map! { LinkedList.new }
   end
 
   def [](key)
     h = hash(key)
-    list = @array[h]
+    list = @array[h] || LinkedList.new
     list.get(key)
   end
 
