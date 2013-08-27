@@ -23,6 +23,15 @@ class LinkedList
     end
   end
 
+  def get(key)
+    node = self.find { |n| n.key == key}
+    if node
+      return node.value
+    else
+      return nil
+    end
+  end
+
   def insert_or_update(key, value)
     node = self.find { |n| n.key == key}
     if node
