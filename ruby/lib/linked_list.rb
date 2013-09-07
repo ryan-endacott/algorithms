@@ -52,38 +52,22 @@ class LinkedList
 
   alias_method :insert, :insert_at_head
 
-  def insert_at_tail(key, value)
-    if @head == nil
-      @head = Node.new(key, value)
-    else
-      current = @head
-
-      while current.next != nil do # set current to tail
-        current = current.next
-      end
-
-      current.next = Node.new(key, value)
-    end
-    @length += 1
-  end
-
   def remove(key)
     current = @head
     while current != nil do
       if current.key == key # gonna delete
-        if current == @head
+        if @head == current
           @head = current.next
-        elsif current == @tail
-          @tail = prev
+        else
+          n = current.next
+          current.key = n.key
+          current.value = n.value
+          current.next = n.next
+          #free n?
         end
-        prev.next = current.next
-        # free it?
-        return current.value
       end
-      prev = current
       current = current.next
     end
   end
-
 end
 
