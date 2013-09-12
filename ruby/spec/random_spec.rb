@@ -1,6 +1,6 @@
-
 require 'spec_helper'
 require 'random'
+require 'set'
 
 describe 'stairs' do
 
@@ -41,3 +41,24 @@ describe 'coins' do
     coins(18, [3, 6, 9, 14]).should == 2
   end
 end
+
+
+
+describe 'powerset' do
+  it 'should work for length 1' do
+    a = Set.new([1])
+    powerset(a).should == Set.new([Set.new([1]), nil])
+  end
+  
+  it 'should work' do
+    a = Set.new([1, 2, 3])
+    b = [[1], [2], [3], [1, 2], [2, 3], [1, 3], [1, 2, 3]]
+    b.map!{ |v| v.to_set }
+    b = Set.new(b)
+    b.add(nil)
+    powerset(a).should == b
+  end
+end
+
+
+

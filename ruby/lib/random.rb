@@ -46,3 +46,15 @@ def coins(sum, coin_values = [1, 5, 10, 25])
   return min[sum].first
 end
 
+
+
+require 'set'
+def powerset(s)
+  return nil if s.length <= 0
+  return Set.new([s, nil]) if s.length == 1
+  new_set = Set.new([s])
+  s.each do |v|
+    new_set.merge(powerset(s.dup.delete(v)))
+  end
+  return new_set
+end
