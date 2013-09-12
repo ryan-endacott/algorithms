@@ -60,5 +60,17 @@ describe 'powerset' do
   end
 end
 
+describe 'to_bin' do
+  it 'should work for 17' do
+    to_bin(17).should == '10001'
+  end
+end
+
+describe 'to_bin2' do
+  it 'should work for 21' do
+    to_bin2(21).should == '10101'
+  end
+end
+
 
 

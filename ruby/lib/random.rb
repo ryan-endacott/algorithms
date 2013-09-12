@@ -58,3 +58,25 @@ def powerset(s)
   end
   return new_set
 end
+
+
+def to_bin(n)
+  str_arr = []
+  while n > 0
+    str_arr.push(n % 2)
+    n /= 2
+  end
+  return str_arr.join
+end
+
+def to_bin2(n)
+  str_arr = []
+  while n > 0
+    str_arr.push(n & 1)
+    n = n >> 1
+  end
+  return str_arr.join
+end
+
+
+
