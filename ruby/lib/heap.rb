@@ -29,10 +29,10 @@ class Heap
   end
 
   def self.downheap(index, array, size)
-    while index * 2 + 1 < size
+    while index * 2 < size
       child = index * 2
       # try to switch with the smaller child
-      child += 1 if array[child + 1] < array[child] 
+      child += 1 if array[child + 1] and array[child + 1] < array[child] 
       if array[child] < array[index]
         array[child], array[index] = array[index], array[child]
         index = child
